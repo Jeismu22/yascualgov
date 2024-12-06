@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Ampliar Tarjeta</title>
+    
+    <style>
+      /*footer*/
+
+      .fondo-imagen {
+    background: url('image/IMG_20240716_105141049.jpg') no-repeat center center/cover;
+    padding: 40px 0; /* Espaciado para las tarjetas */
+    width: 100%; /* Asegura que cubra todo el ancho */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para las tarjetas dentro del contenedor */
+.cardf {
+    border: none; /* Sin borde para que la imagen se vea limpia */
+    background: rgba(255, 255, 255, 0); /* Fondo transparente */
+    box-shadow: none; /* Sin sombra para que la imagen se vea claramente */
+}
+
+/* Fondo blanco translúcido para que el texto sea legible sobre la imagen */
+.fondo-imagen .cardf-body {
+    background: rgba(255, 255, 255, 0.5); /* Fondo blanco translúcido, pero algo transparente */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados para las tarjetas */
+}
+
+/* Para los íconos dentro de las tarjetas */
+.bi {
+    font-size: 24px;
+    margin: 10px;
+}
+
+/* Hacer que las tarjetas tengan un buen tamaño y no se estiren demasiado */
+.cardf-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Si las pantallas son pequeñas, las tarjetas se apilan */
+}
+
+.cardf {
+    flex: 1 1 30%; /* Esto asegura que las tarjetas ocupen un 30% del espacio */
+    margin: 10px;
+}
+
+      .navbar-nav .nav-link.active {
+      color: #ffc107 !important; /* Cambia este color según tu paleta */
+      font-weight: bold;          /* Opcional: hace el texto más grueso */
+      border-bottom: 2px solid #ffc107; /* Línea inferior para resaltar */
+    }
+
+    /* Estilo para el hover en las pestañas */
+    .navbar-nav .nav-link:hover {
+      color: #f8d62b !important;  /* Color más claro en el hover */
+      transition: color 0.3s;
+    }
+
+
+        body{
+            background-color: #e3a30e;
+        }
+        .expanded-card {
+            transform: scale(1.1); /* Ampliación de la tarjeta completa */
+            transition: transform 0.3s ease-in-out;
+            z-index: 10; /* Asegura que la tarjeta ampliada quede por encima */
+            position: relative;
+        }
+        .description {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5f5f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .card {
+  position: relative;
+  transition: transform 0.3s ease;
+  border: 1px solid #2f2d2d; /* Borde de 3 píxeles, sólido, de color rojo */
+}
+
+.expanded-card {
+  transform: scale(1.2); /* Aumenta el tamaño de la tarjeta */
+}
+
+.description {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.expand-btn {
+  margin-top: 10px;
+}
+
+.fondo-imagen .card-body {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 30%;
+  margin: 10px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    margin-top: 20px; /* Ajusta el valor según la separación deseada */
+}
+
+    </style>
+</head>
+
+
+<body>
+
+<!---->
+   <!-- Navbar --> 
+   <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="image/logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+        Cabildo Indígena
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultura.html">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link active" href="historia.html">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="pqrs.html">PQRS</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dependenciaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dependencia
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dependenciaDropdown">
+              <li><a class="dropdown-item" href="https://secretariageneral.gov.co/">Secretaría general</a></li>
+              <li><a class="dropdown-item" href="https://www.sdp.gov.co/">Secretaría de planeación</a></li>
+              <li><a class="dropdown-item" href="https://sed.narino.gov.co/">Secretaría de educación</a></li>
+              <li><a class="dropdown-item" href="https://www.saludpasto.gov.co/">Secretaría de salud</a></li>
+              <li><a class="dropdown-item" href="https://www.minagricultura.gov.co/paginas/default.aspx">Secretaría de agricultura</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Espaciador para evitar que el contenido quede detrás del navbar -->
+  <div style="margin-top: 70px;"></div>
+  
+  
+
+
+
+  <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-bs-ride="carousel">
+    <!-- Controls -->
+    <div class="d-flex justify-content-center mb-4">
+      <button class="carousel-control-prev position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+    <!-- Inner -->
+    <div class="carousel-inner py-4">
+      <!-- Single item -->
+      <div class="carousel-item active">
+          <div class="container mt-5">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <div class="card">
+                          <img src="image/par.jpeg" class="card-img-top" alt="Waterfall" />
+                          <div class="card-body">
+                              <h5 class="card-title">El Paramo</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#!" class="btn btn-primary" onclick="ampliarTarjeta(this)">Ampliar</a>
+                              <button class="close-btn" onclick="cerrarTarjeta(this)">✕</button> <!-- Botón de cierre -->
+                              <div class="description">El resguardo de Yascual conserva grandes hectáreas de paramo una riqueza natural, donde se preserva Flora y Fauna. Al pie del paramo nace el agua que es vital para suministrar a toda la población que depende de ella, y también es considerado sitio Sagrado</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="card">
+                          <img src="image/WhatsApp Image 2024-11-26 at 10.37.00 PM.jpeg" class="card-img-top" alt="Sunset Over the Sea" height="310px" />
+                          <div class="card-body">
+                              <h5 class="card-title">La cueva de la vieja</h5>
+                              <p class="card-text">Ubicada en la vereda San Antonio en el resguarde de Yascual
+                                .</p>
+                              <a href="#!" class="btn btn-primary" onclick="ampliarTarjeta(this)">Ampliar</a>
+                              <button class="close-btn" onclick="cerrarTarjeta(this)">✕</button> <!-- Botón de cierre -->
+                              <div class="description">Un sitió Sagrado donde nuestros antepasados Se congregaban para hacer sus reuniones y también para esconderse de los Europeos cuando vinieron a nuestro territorio</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="card">
+                          <img src="image/WhatsApp Image 2024-11-26 at 10.37.01 PM.jpeg" class="card-img-top" alt="Sunset over the Sea" height="310px"/>
+                          <div class="card-body">
+                              <h5 class="card-title">Agua Rusia</h5>
+                              <p class="card-text">Ubicada en la vereda el Arrayan de Yascual.</p>
+                              <a href="#!" class="btn btn-primary" onclick="ampliarTarjeta(this)">Ampliar</a>
+                              <button class="close-btn" onclick="cerrarTarjeta(this)">✕</button> <!-- Botón de cierre -->
+                              <div class="description">Agua Rusia es un sitio sagrado donde nuestros antepasados realizaban importantes ritos espirituales. Se encuentra en un lugar estratégico, rodeado por una chorrera y una abundante vegetación. Este entorno natural servía como un espacio de encuentro para los antiguos, quienes se reunían allí para llevar a cabo ceremonias de purificación, conectándose con la naturaleza y preservando su espiritualidad. </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Single item -->
+      <div class="carousel-item">
+          <div class="container mt-5">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <div class="card">
+                          <img src="image/panecillo.jpg" class="card-img-top" alt="Fissure in Sandstone" />
+                          <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#!" class="btn btn-primary" onclick="ampliarTarjeta(this)">Ampliar</a>
+                              <button class="close-btn" onclick="cerrarTarjeta(this)">✕</button> <!-- Botón de cierre -->
+                              <div class="description">Fissure in Sandstone</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="card">
+                          <img src="image/WhatsApp Image 2024-11-26 at 10.37.00 PM (1).jpeg" class="card-img-top" alt="Storm Clouds" />
+                          <div class="card-body">
+                              <h5 class="card-title">Lavado de baras</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#!" class="btn btn-primary" onclick="ampliarTarjeta(this)">Ampliar</a>
+                              <button class="close-btn" onclick="cerrarTarjeta(this)">✕</button> <!-- Botón de cierre -->
+                              <div class="description">El Lavado de Baras es un ritual ancestral que se celebra anualmente en diferentes sitios sagrados del Resguardo de Yascual. Este año, la ceremonia tuvo lugar en Agua Rusia, donde la comunidad, junto con su corporación y los Taitas (autoridades mayores), se reunieron para realizar la purificación personal y espiritual. Durante este evento, también se purifican los bastones de mando, reafirmando la conexión de los líderes con la tradición y la sabiduría ancestral. Este ritual fortalece la unidad comunitaria y mantiene vivas las prácticas sagradas de sus antepasados.</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="card">
+                          <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/186.webp" class="card-img-top" alt="Hot Air Balloons" />
+                          <div class="card-body">
+                              <h5 class="card-title">Piedra chura</h5>
+                              <p class="card-text">Ubicada al norte del resguardo de yascual en la vereda Las Minas.</p>
+                              <a href="#!" class="btn btn-primary" onclick="ampliarTarjeta(this)">Ampliar</a>
+                              <button class="close-btn" onclick="cerrarTarjeta(this)">✕</button> <!-- Botón de cierre -->
+                              <div class="description">La Piedra Chura es un sitio sagrado que resguarda un antiguo gerolifico creado por nuestros ancestros. En ella, dejaron plasmado el Churo Cósmico, una enigmática representación que forma parte de una escritura ancestral cuyo significado aún está en proceso de ser descifrado. Este símbolo es un legado 
+                                de la cosmovisión indígena, que refleja la profunda conexión de nuestros antepasados con el universo y la naturaleza.</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+  <!--footer COMPLETO--------------------------------->
+  <div class="cardf-group fondo-imagen">
+    <div class="cardf">
+        <div class="cardf-body">
+            <h5 class="card-title">Cabildo Indigena Resgiuardo de Yascual</h5>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.699639299179!2d-77.65951037406924!3d1.2125361773661287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2eb48fde82f04f%3A0x496773811d99ece!2sCabildo%20Yascual!5e0!3m2!1ses-419!2sco!4v1730951846727!5m2!1ses-419!2sco" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="cardf">
+        <div class="cardf-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Este sitio web fue creado con el propósito de preservar, difundir y fortalecer la identidad cultural, histórica y espiritual de nuestra comunidad indígena. A través de esta plataforma, buscamos ofrecer a los visitantes una ventana al conocimiento sobre nuestras tradiciones, leyendas y costumbres, como la historia sagrada de "Agua Rusia".
+  
+              Además, el sitio facilita la comunicación entre los miembros del resguardo y el acceso a información importante sobre nuestras dependencias locales, fomentando un sentido de unidad y pertenencia. Queremos que este espacio sea un recurso valioso para las nuevas generaciones, asegurando que nuestras raíces y valores perduren en el tiempo.</p>
+        </div>
+    </div>
+    <div class="cardf">
+      <div class="cardf-body">
+        <!-- Fila de iconos en columnas -->
+        <div class="row text-center">
+          <!-- Columna para WhatsApp -->
+          <div class="col-4 mb-3">
+            <a href="https://wa.me/+573113955872" target="_blank" class="text-decoration-none text-success">
+              <i class="bi bi-whatsapp" style="font-size: 40px;"></i>
+              <div>WhatsApp</div>
+            </a>
+          </div>
+    
+          <!-- Columna para YouTube -->
+          <div class="col-4 mb-3">
+            <a href="https://www.youtube.com" target="_blank" class="text-decoration-none text-danger">
+              <i class="bi bi-youtube" style="font-size: 40px;"></i>
+              <div>YouTube</div>
+            </a>
+          </div>
+    
+          <!-- Columna para Twitter -->
+          <div class="col-4 mb-3">
+            <a href="https://twitter.com" target="_blank" class="text-decoration-none text-primary">
+              <i class="bi bi-twitter" style="font-size: 40px;"></i>
+              <div>Twitter</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+  
+  
+  
+    <!-- Íconos de Bootstrap -->
+  
+    <!--foter comp2024-->
+    <footer class="text-center bg-body-tertiary ">
+      <!-- Grid container -->
+      <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Proyecto:
+        <a class="text-body" href="https://mdbootstrap.com/"></a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let tarjetaAbierta = null;  // Variable para almacenar la tarjeta abierta actualmente
+
+    document.addEventListener('click', (event) => {
+        // Cierra la tarjeta si haces clic fuera de ella
+        if (tarjetaAbierta && !tarjetaAbierta.contains(event.target)) {
+            cerrarTarjeta(tarjetaAbierta.querySelector('.close-btn'));
+        }
+    });
+    
+    window.ampliarTarjeta = function(button) {
+        const card = button.closest('.card');
+
+        // Cierra la tarjeta anterior si es diferente a la que se quiere abrir
+        if (tarjetaAbierta && tarjetaAbierta !== card) {
+            cerrarTarjeta(tarjetaAbierta.querySelector('.close-btn'));
+        }
+
+        // Abre la tarjeta seleccionada
+        tarjetaAbierta = card;
+        const description = card.querySelector('.description');
+        const closeBtn = card.querySelector('.close-btn');
+
+        card.classList.add('expanded-card');
+        description.style.display = 'block';
+        closeBtn.style.display = 'block';
+    }
+
+    window.cerrarTarjeta = function(closeButton) {
+        const card = closeButton.closest('.card');
+        const description = card.querySelector('.description');
+        const closeBtn = card.querySelector('.close-btn');
+
+        card.classList.remove('expanded-card');
+        description.style.display = 'none';
+        closeBtn.style.display = 'none';
+
+        tarjetaAbierta = null;  // Reinicia la variable
+    }
+});
+
+function ampliarTarjeta(button) {
+            var card = button.closest('.card'); // Encuentra la tarjeta más cercana al botón
+            var description = card.querySelector('.description'); // Encuentra la descripción de la tarjeta
+            
+            // Expandir la tarjeta
+            card.classList.toggle('expanded-card');
+            
+            // Mostrar o esconder la descripción
+            description.style.display = description.style.display === 'block' ? 'none' : 'block';
+            
+            // Hacer que la tarjeta se desplace hacia abajo para dar espacio al contenido ampliado
+            if (card.classList.contains('expanded-card')) {
+                card.style.marginBottom = '20px'; // Espacio adicional cuando la tarjeta se amplía
+            } else {
+                card.style.marginBottom = '0'; // Elimina el margen cuando la tarjeta se contrae
+            }
+        }
+</script>
+
+<!-- Scripts de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

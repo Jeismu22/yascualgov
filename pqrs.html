@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Degradado e Imagen</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+
+        .navbar-nav .nav-link.active {
+        color: #ffc107 !important; /* Cambia este color según tu paleta */
+        font-weight: bold;          /* Opcional: hace el texto más grueso */
+        border-bottom: 2px solid #ffc107; /* Línea inferior para resaltar */
+        }
+
+        /* Estilo para el hover en las pestañas */
+        .navbar-nav .nav-link:hover {
+        color: #f8d62b !important;  /* Color más claro en el hover */
+        transition: color 0.3s;
+        }
+
+
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* Cambiado para asegurar que el navbar y el formulario estén uno debajo del otro */
+            justify-content: flex-start;
+            background-color: rgb(244, 225, 13); /* Fondo gris claro */
+        }
+        /* Navbar con degradado vertical */
+        
+
+        /* Contenedor principal */
+        .containerPQ {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            height: 80vh;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Separación desde el navbar */
+        }
+
+        /* Sección de la imagen (izquierda) */
+        .image-section {
+            width: 50%;
+            background: url('image/IMG_20240716_105141049.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        /* Capa degradada sobre la imagen */
+        .image-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(229, 211, 7, 0) 0%, rgb(240, 213, 10) 100%);
+        }
+
+        /* Sección del formulario (derecha) */
+        .form-section {
+            width: 50%;
+            background-color: rgba(240, 213, 10); /* Color de fondo claro */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Sección de inputs */
+        .field {
+            margin-bottom: 15px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        #button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #button:hover {
+            background-color: #3b3f9f;
+        }
+
+    
+    </style>
+</head>
+<body>
+
+   
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="image/logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+        Cabildo Indígena
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultura.html">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link" href="historia.html">Historia</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pqrs.html">PQRS</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dependenciaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dependencia
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dependenciaDropdown">
+              <li><a class="dropdown-item" href="https://secretariageneral.gov.co/">Secretaría general</a></li>
+              <li><a class="dropdown-item" href="https://www.sdp.gov.co/">Secretaría de planeación</a></li>
+              <li><a class="dropdown-item" href="https://sed.narino.gov.co/">Secretaría de educación</a></li>
+              <li><a class="dropdown-item" href="https://www.saludpasto.gov.co/">Secretaría de salud</a></li>
+              <li><a class="dropdown-item" href="https://www.minagricultura.gov.co/paginas/default.aspx">Secretaría de agricultura</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Espaciador para evitar que el contenido quede detrás del navbar -->
+  <div style="margin-top: 70px;"></div>
+  
+  
+
+  
+
+
+    <!-- Contenedor del formulario con imagen -->
+    <div class="containerPQ">
+        <!-- Sección de imagen (izquierda) -->
+        <div class="image-section"></div>
+
+        <!-- Sección del formulario (derecha) -->
+        <div class="form-section">
+            <h2>Formulario de Contacto</h2>
+            <form id="form">
+                <div class="field">
+                    <label for="from_name">Nombre</label>
+                    <input type="text" name="from_name" id="from_name" class="form-control">
+                </div>
+                <div class="field">
+                    <label for="to_name">Para</label>
+                    <input type="text" name="to_name" id="to_name" class="form-control">
+                </div>
+                <div class="field">
+                    <label for="message">Mensaje</label>
+                    <input type="text" name="message" id="message" class="form-control">
+                </div>
+                <div class="field">
+                    <label for="email_id">Email</label>
+                    <input type="email" name="email_id" id="email_id" class="form-control">
+                </div>
+                <div class="field">
+                    <label for="cell">Celular</label>
+                    <input type="tel" name="cell" id="cell" class="form-control">
+                </div>
+                <div class="field">
+                    <label for="reply_to">Confirmación Celular</label>
+                    <input type="tel" name="reply_to" id="reply_to" class="form-control">
+                </div>
+                <input type="submit" id="button" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+        <!-- Íconos de Bootstrap -->
+      
+        <!--foter comp2024-->
+        <footer class="text-center bg-body-tertiary ">
+          <!-- Grid container -->
+          <div class="container pt-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+              <!-- Facebook -->
+              <a
+                data-mdb-ripple-init
+                class="btn btn-link btn-floating btn-lg text-body m-1"
+                href="#!"
+                role="button"
+                data-mdb-ripple-color="dark"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+        
+              <!-- Twitter -->
+              <a
+                data-mdb-ripple-init
+                class="btn btn-link btn-floating btn-lg text-body m-1"
+                href="#!"
+                role="button"
+                data-mdb-ripple-color="dark"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </section>
+            <!-- Section: Social media -->
+          </div>
+          <!-- Grid container -->
+        
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Proyecto:
+            <a class="text-body" href="https://mdbootstrap.com/"></a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+
+
+
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

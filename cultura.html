@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himno Nacional con Estilo Moderno</title>
+    <!-- Enlace a Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Iconos de Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      /*foter*/
+      .fondo-imagen {
+    background: url('image/IMG_20240716_105141049.jpg') no-repeat center center/cover;
+    padding: 40px 0; /* Espaciado para las tarjetas */
+    width: 100%; /* Asegura que cubra todo el ancho */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para las tarjetas dentro del contenedor */
+.card {
+    border: none; /* Sin borde para que la imagen se vea limpia */
+    background: rgba(255, 255, 255, 0); /* Fondo transparente */
+    box-shadow: none; /* Sin sombra para que la imagen se vea claramente */
+}
+
+/* Fondo blanco translúcido para que el texto sea legible sobre la imagen */
+.fondo-imagen .card-body {
+    background: rgba(255, 255, 255, 0.5); /* Fondo blanco translúcido, pero algo transparente */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados para las tarjetas */
+}
+
+/* Para los íconos dentro de las tarjetas */
+.bi {
+    font-size: 24px;
+    margin: 10px;
+}
+
+/* Hacer que las tarjetas tengan un buen tamaño y no se estiren demasiado */
+.card-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Si las pantallas son pequeñas, las tarjetas se apilan */
+}
+
+.card {
+    flex: 1 1 30%; /* Esto asegura que las tarjetas ocupen un 30% del espacio */
+    margin: 10px;
+}
+
+      .navbar-nav .nav-link.active {
+        color: #ffc107 !important; /* Cambia este color según tu paleta */
+        font-weight: bold;          /* Opcional: hace el texto más grueso */
+        border-bottom: 2px solid #ffc107; /* Línea inferior para resaltar */
+      }
+
+      /* Estilo para el hover en las pestañas */
+      .navbar-nav .nav-link:hover {
+        color: #f8d62b !important;  /* Color más claro en el hover */
+        transition: color 0.3s;
+      }
+
+
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Fondo degradado */
+            font-family: 'Arial', sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .hymn-box {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .hymn-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+        }
+        .hymn-box h2 {
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        .custom-card {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .custom-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+        .custom-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .custom-card .card-body {
+            padding: 20px;
+        }
+        .custom-card h4 {
+            color: #007bff;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 30px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<!---->
+   <!-- Navbar --> 
+   <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="image/logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+        Cabildo Indígena
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link " href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="cultura.html">Cultura</a></li>
+          <li class="nav-item"><a class="nav-link" href="historia.html">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="pqrs.html">PQRS</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dependenciaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dependencia
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dependenciaDropdown">
+              <li><a class="dropdown-item" href="https://secretariageneral.gov.co/">Secretaría general</a></li>
+              <li><a class="dropdown-item" href="https://www.sdp.gov.co/">Secretaría de planeación</a></li>
+              <li><a class="dropdown-item" href="https://sed.narino.gov.co/">Secretaría de educación</a></li>
+              <li><a class="dropdown-item" href="https://www.saludpasto.gov.co/">Secretaría de salud</a></li>
+              <li><a class="dropdown-item" href="https://www.minagricultura.gov.co/paginas/default.aspx">Secretaría de agricultura</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Espaciador para evitar que el contenido quede detrás del navbar -->
+  <div style="margin-top: 70px;"></div>
+  
+  
+
+  <div class="container mt-5">
+    <div class="row">
+        <!-- Columna para el himno -->
+        <div class="col-lg-6 mb-4">
+            <div class="hymn-box">
+                <h2 class="mb-4"><i class="fas fa-music"></i> Himno Cabildo Indigena De Yascual</h2>
+                <p class="text-muted" id="contenido-corto">
+                    Coro  <br>
+                    Comuneros de nuestro Yascual,<br>
+                    con lucha, amor y autoridad; <br>
+                    proclamando derechos del indio <br>
+                    justicia, opinión, libertad... (Bis)<br>
+                    <br>
+                    I <br>
+                    Ancestrales de nuestro resguardo,<br>
+                    una historia que no pasara;<br> 
+                    cultivemos el pensar del indio <br>
+                    que en su sangre se siente llevar.<br>
+                </p>
+                <p class="text-muted hidden" id="contenido-largo">
+                    <br>
+                    II
+                    <br>
+                    la justicia que hoy empuñamos<br>
+                    la hacemos en nombre de Dios; <br>
+                    defendiendo la vida y la tierra,<br>
+                    para el indio el derecho mayor.<br>
+                    <br>
+                    III<br>
+                    Espiritus de nuestros aricestros<br>
+                    en la tierra danzando estan, <br>
+                    entre cuevas, chorreras y rios: <br>
+                    Aqua Rusia, Pailon, Chachacal..<br>
+                    <br>
+                    IV 
+                    <br>
+                    Por el norte esta el infiernillo,<br> 
+                    y al sur el páramo de Alpan;<br>
+                    en el sungo esta el Panecillo,<br>
+                    por los lados: Salado y Pacual.<br>
+                    <br>
+                    V
+                    <br>
+                    Territorio de los Chalacan,<br>
+                    Maingual, Cuaichat, Tez, Getial...<br>
+                    apelidos de nuestros nativos <br>
+                    descendientes del cacique Asgual.<br>
+                </p>
+                <button class="btn btn-primary" id="toggleButton">Leer más</button>
+            </div>
+        </div>
+
+        <!-- Columna para la imagen y descripción -->
+        <div class="col-lg-6">
+            <div class="custom-card">
+                <img src="ruta_de_la_imagen/imagen.jpg" alt="Descripción">
+                <div class="card-body">
+                    <h4> Leyenda de "Agua Rusia"</h4>
+                    <p class="text-muted">
+                      Los ancianos del pueblo relatan una historia sobre un sitio sagrado conocido como la quebrada "Agua Rusia". Según cuentan, en este lugar emanaba una misteriosa luz que se desplazaba desde la quebrada hasta el pueblo de Yascual, pasando por el Panecillo y, después de un tiempo, regresaba al punto de partida, junto a la chorrera.
+                      
+                      Alrededor de 1980, los habitantes del resguardo, junto con su párroco, solían congregarse en este sitio sagrado. Muchos comuneros afirmaban haber visto a la Virgen reflejada en la peña, justo en la parte inferior de la roca de la que brotaba el agua. Se cree que esta agua posee propiedades curativas, un regalo sagrado para la comunidad que aún conserva su misticismo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  document.getElementById('toggleButton').addEventListener('click', function() {
+      var contenidoLargo = document.getElementById('contenido-largo');
+      if (contenidoLargo.classList.contains('hidden')) {
+          contenidoLargo.classList.remove('hidden');
+          this.textContent = 'Leer menos';
+      } else {
+          contenidoLargo.classList.add('hidden');
+          this.textContent = 'Leer más';
+      }
+  });
+</script>
+
+<!--Fotter-->
+<div class="card-group fondo-imagen">
+  <div class="card">
+      <div class="card-body">
+          <h5 class="card-title">Cabildo Indigena Resgiuardo de Yascual</h5>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.699639299179!2d-77.65951037406924!3d1.2125361773661287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2eb48fde82f04f%3A0x496773811d99ece!2sCabildo%20Yascual!5e0!3m2!1ses-419!2sco!4v1730951846727!5m2!1ses-419!2sco" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  </div>
+  <div class="card">
+      <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Este sitio web fue creado con el propósito de preservar, difundir y fortalecer la identidad cultural, histórica y espiritual de nuestra comunidad indígena. A través de esta plataforma, buscamos ofrecer a los visitantes una ventana al conocimiento sobre nuestras tradiciones, leyendas y costumbres, como la historia sagrada de "Agua Rusia".
+
+            Además, el sitio facilita la comunicación entre los miembros del resguardo y el acceso a información importante sobre nuestras dependencias locales, fomentando un sentido de unidad y pertenencia. Queremos que este espacio sea un recurso valioso para las nuevas generaciones, asegurando que nuestras raíces y valores perduren en el tiempo.</p>
+      </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <!-- Fila de iconos en columnas -->
+      <div class="row text-center">
+        <!-- Columna para WhatsApp -->
+        <div class="col-4 mb-3">
+          <a href="https://wa.me/+573113955872" target="_blank" class="text-decoration-none text-success">
+            <i class="bi bi-whatsapp" style="font-size: 40px;"></i>
+            <div>WhatsApp</div>
+          </a>
+        </div>
+  
+        <!-- Columna para YouTube -->
+        <div class="col-4 mb-3">
+          <a href="https://www.youtube.com" target="_blank" class="text-decoration-none text-danger">
+            <i class="bi bi-youtube" style="font-size: 40px;"></i>
+            <div>YouTube</div>
+          </a>
+        </div>
+  
+        <!-- Columna para Twitter -->
+        <div class="col-4 mb-3">
+          <a href="https://twitter.com" target="_blank" class="text-decoration-none text-primary">
+            <i class="bi bi-twitter" style="font-size: 40px;"></i>
+            <div>Twitter</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+
+  <!-- Íconos de Bootstrap -->
+
+  <!--foter comp2024-->
+  <footer class="text-center bg-body-tertiary ">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2024 Proyecto:
+      <a class="text-body" href="https://mdbootstrap.com/"></a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+<!-- Enlace a Bootstrap JS (opcional, para funcionalidades avanzadas) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+    
+
+
+
